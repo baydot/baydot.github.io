@@ -657,8 +657,8 @@ h6 {
 }
 
 #why-us .card {
-  background: #00458f;
-  border-color: #00458f;
+  background: #8c5cb0;
+  border-color: #8c5cb0;
   border-radius: 10px;
   margin: 0 15px;
   padding: 15px 0;
@@ -669,8 +669,8 @@ h6 {
 }
 
 #why-us .card:hover {
-  background: #003b7a;
-  border-color: #003b7a;
+  background: #361252;
+  border-color: #361252;
 }
 
 #why-us .card i {
