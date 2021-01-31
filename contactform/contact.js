@@ -1,73 +1,118 @@
-$(document).ready(function(){
-    
-  (function($) {
-      "use strict";
 
-  
-  jQuery.validator.addMethod('answercheck', function (value, element) {
-      return this.optional(element) || /^\bcat\b$/.test(value)
-  }, "type the correct answer -_-");
+jQuery(document).ready(function($) {
+  "use strict";
 
-  // validate contactForm form
-  $(function() {
-      $('#contactForm').validate({
-          rules: {
-              name: {
-                  required: true,
-                  minlength: 2
-              },
-              subject: {
-                  required: true,
-                  minlength: 4
-              },
-              email: {
-                  required: true,
-                  email: true
-              },
-              message: {
-                  required: true,
-                  minlength: 20
-              }
-          },
-          messages: {
-              name: {
-                  required: "come on, you have a name, don't you?",
-                  minlength: "your name must consist of at least 2 characters"
-              },
-              subject: {
-                  required: "come on, you have a web address, don't you?",
-                  minlength: "your address must consist of at least 4 characters"
-              },
-              email: {
-                  required: "no email, no message"
-              },
-              message: {
-                  required: "um...yea, you have to write something to send this form.",
-                  minlength: "thats all? really?"
-              }
-          },
-          submitHandler: function(form) {
-              $(form).ajaxSubmit({
-                  type:"POST",
-                  data: $(form).serialize(),
-                  url:"https://shabeebhasan.000webhostapp.com/contact_process.php",
-                  success: function() {
-                      $('#contactForm :input').attr('disabled', 'disabled');
-                      $('#contactForm').fadeTo( "slow", 0.15, function() {
-                          $(this).find(':input').attr('disabled', 'disabled');
-                          $(this).find('label').css('cursor','default');
-                          $('#success').fadeIn()
-                      })
-                  },
-                  error: function() {
-                      $('#contactForm').fadeTo( "slow", 0.15, function() {
-                          $('#error').fadeIn()
-                      })
-                  }
-              })
-          }
-      })
-  })
-      
-})(jQuery)
-})
+  //Contact
+  $('form.contactForm').submit(function() {
+    var f = $(this).find('.form-group'),
+      ferror = false,
+      emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+    f.children('input').each(function() { // run all inputs
+
+      var i = $(this); // current input
+      var rule = i.attr('data-rule');
+
+      if (rule !== undefined) {
+        var ierror = false; // error flag for current input
+        var pos = rule.indexOf(':', 0);
+        if (pos >= 0) {
+          var exp = rule.substr(pos + 1, rule.length);
+          rule = rule.substr(0, pos);
+        } else {
+          rule = rule.substr(pos + 1, rule.length);
+        }
+
+        switch (rule) {
+          case 'required':
+            if (i.val() === '') {
+              ferror = ierror = true;
+            }
+            break;
+
+          case 'minlen':
+            if (i.val().length < parseInt(exp)) {
+              ferror = ierror = true;
+            }
+            break;
+
+          case 'email':
+            if (!emailExp.test(i.val())) {
+              ferror = ierror = true;
+            }
+            break;
+
+          case 'checked':
+            if (! i.is(':checked')) {
+              ferror = ierror = true;
+            }
+            break;
+
+          case 'regexp':
+            exp = new RegExp(exp);
+            if (!exp.test(i.val())) {
+              ferror = ierror = true;
+            }
+            break;
+        }
+        i.next('.validation').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
+      }
+    });
+    f.children('textarea').each(function() { // run all inputs
+
+      var i = $(this); // current input
+      var rule = i.attr('data-rule');
+
+      if (rule !== undefined) {
+        var ierror = false; // error flag for current input
+        var pos = rule.indexOf(':', 0);
+        if (pos >= 0) {
+          var exp = rule.substr(pos + 1, rule.length);
+          rule = rule.substr(0, pos);
+        } else {
+          rule = rule.substr(pos + 1, rule.length);
+        }
+
+        switch (rule) {
+          case 'required':
+            if (i.val() === '') {
+              ferror = ierror = true;
+            }
+            break;
+
+          case 'minlen':
+            if (i.val().length < parseInt(exp)) {
+              ferror = ierror = true;
+            }
+            break;
+        }
+        i.next('.validation').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
+      }
+    });
+    if (ferror) return false;
+    else var str = $(this).serialize();
+    var action = $(this).attr('action');
+    if( ! action ) {
+      action = 'https://shabeebhasan.000webhostapp.com/contact_process.php';
+    }
+    $.ajax({
+      type: "POST",
+      url: action,
+      data: str,
+      success: function(msg) {
+        if (msg == 'OK') {
+          $("#sendmessage").addClass("show");
+          $("#errormessage").removeClass("show");
+          $('.contactForm').find("input, textarea").val("");
+        } else {
+          $("#sendmessage").removeClass("show");
+          $("#errormessage").addClass("show");
+          $('#errormessage').html(msg);
+        }
+
+      }
+    });
+    return false;
+  });
+
+});
