@@ -946,35 +946,49 @@ h6 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  transition: 0.2s;
-  padding: 15px 0;
-  background: rgba(29, 28, 41, 0.6);
+  padding: 20px;
+  background: rgba(29, 28, 41, 0.85);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 #team .member .member-info-content {
-  transition: margin 0.2s;
-  height: 40px;
-  transition: height 0.4s;
+  width: 100%;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, -webkit-transform 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, -webkit-transform 0.4s ease;
 }
 
-#team .member:hover .member-info {
-  transition: 0.4s;
+#team .member:hover .member-info,
+#team .member:focus-within .member-info {
+  opacity: 1;
 }
 
-#team .member:hover .member-info-content {
-  height: 80px;
+#team .member:hover .member-info-content,
+#team .member:focus-within .member-info-content {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
 }
 
 #team .member h4 {
@@ -989,6 +1003,14 @@ h6 {
   display: block;
   font-size: 13px;
   color: #fff;
+  margin-bottom: 5px;
+}
+
+#team .member p.team-bio {
+  font-size: 13px;
+  line-height: 20px;
+  color: #f0f6ff;
+  margin: 10px 0 0 0;
 }
 
 #team .member .social {
