@@ -1,0 +1,76 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="880" y2="680" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2E3A9D" />
+      <stop offset="0.45" stop-color="#4C2F92" />
+      <stop offset="1" stop-color="#0B0F2F" />
+    </linearGradient>
+    <linearGradient id="glow" x1="160" y1="120" x2="760" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4BE9F5" stop-opacity="0.45" />
+      <stop offset="1" stop-color="#7D6BFF" stop-opacity="0.05" />
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4BE9F5" />
+      <stop offset="1" stop-color="#FF7EDB" />
+    </linearGradient>
+    <filter id="blur" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="80" />
+    </filter>
+  </defs>
+  <rect width="960" height="720" rx="42" fill="url(#bg)" />
+  <rect x="80" y="60" width="800" height="600" rx="38" fill="url(#glow)" />
+  <rect x="120" y="120" width="720" height="520" rx="32" fill="rgba(5,10,30,0.65)" stroke="rgba(255,255,255,0.08)" stroke-width="2" />
+
+  <path d="M180 520C214 422 286 340 372 320C445 302 522 330 582 372C634 408 696 416 752 392" stroke="rgba(132,208,255,0.55)" stroke-width="4" stroke-linecap="round" />
+  <path d="M210 470C260 380 352 330 438 342C496 350 540 380 598 410C656 440 714 436 780 410" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-dasharray="12 12" />
+
+  <g filter="url(#blur)" opacity="0.6">
+    <circle cx="260" cy="240" r="90" fill="#4BE9F5" />
+    <circle cx="680" cy="240" r="110" fill="#7D6BFF" />
+  </g>
+
+  <g fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1">
+    <rect x="190" y="200" width="220" height="140" rx="18" />
+    <rect x="520" y="200" width="230" height="150" rx="20" />
+  </g>
+
+  <g fill="rgba(255,255,255,0.06)">
+    <rect x="220" y="230" width="60" height="12" rx="6" />
+    <rect x="220" y="252" width="110" height="12" rx="6" />
+    <rect x="220" y="274" width="150" height="12" rx="6" />
+    <rect x="560" y="236" width="80" height="12" rx="6" />
+    <rect x="560" y="258" width="120" height="12" rx="6" />
+    <rect x="560" y="280" width="160" height="12" rx="6" />
+  </g>
+
+  <g>
+    <circle cx="240" cy="520" r="14" fill="url(#node)" />
+    <circle cx="360" cy="450" r="10" fill="url(#node)" />
+    <circle cx="480" cy="380" r="18" fill="url(#node)" />
+    <circle cx="600" cy="430" r="12" fill="url(#node)" />
+    <circle cx="720" cy="360" r="16" fill="url(#node)" />
+  </g>
+
+  <g stroke="rgba(255,255,255,0.16)" stroke-width="1.5">
+    <line x1="240" y1="520" x2="360" y2="450" />
+    <line x1="360" y1="450" x2="480" y2="380" />
+    <line x1="480" y1="380" x2="600" y2="430" />
+    <line x1="600" y1="430" x2="720" y2="360" />
+  </g>
+
+  <g opacity="0.75">
+    <rect x="250" y="590" width="120" height="40" rx="14" fill="rgba(255,255,255,0.12)" />
+    <rect x="390" y="590" width="140" height="40" rx="14" fill="rgba(255,255,255,0.12)" />
+    <rect x="550" y="590" width="160" height="40" rx="14" fill="rgba(255,255,255,0.12)" />
+  </g>
+
+  <g fill="rgba(255,255,255,0.5)">
+    <circle cx="210" cy="180" r="4" />
+    <circle cx="450" cy="150" r="3" />
+    <circle cx="740" cy="190" r="4" />
+    <circle cx="820" cy="320" r="3" />
+    <circle cx="640" cy="520" r="3" />
+    <circle cx="320" cy="560" r="3" />
+    <circle cx="170" cy="420" r="3" />
+  </g>
+</svg>

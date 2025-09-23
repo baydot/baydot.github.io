@@ -1,0 +1,45 @@
+<svg width="720" height="540" viewBox="0 0 720 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="restaurant-bg" x1="100" y1="60" x2="620" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2C1255" />
+      <stop offset="0.5" stop-color="#3A1D6A" />
+      <stop offset="1" stop-color="#080822" />
+    </linearGradient>
+    <linearGradient id="plate" x1="220" y1="200" x2="520" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF7EDB" />
+      <stop offset="1" stop-color="#4BE9F5" />
+    </linearGradient>
+  </defs>
+  <rect width="720" height="540" rx="34" fill="url(#restaurant-bg)" />
+  <circle cx="360" cy="270" r="180" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
+  <circle cx="360" cy="270" r="120" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+  <circle cx="360" cy="270" r="90" fill="rgba(8,10,40,0.9)" stroke="rgba(255,255,255,0.08)" stroke-width="2" />
+
+  <g opacity="0.9">
+    <path d="M280 250C300 230 330 218 360 218C394 218 422 232 440 250C452 262 460 276 460 290C460 314 430 332 390 332H330C296 332 260 314 260 284C260 272 268 260 280 250Z" fill="rgba(255,255,255,0.08)" />
+    <path d="M320 260C336 240 368 240 384 260C396 276 392 292 368 304C336 320 308 302 320 260Z" fill="url(#plate)" />
+    <circle cx="316" cy="286" r="10" fill="#F5F7FF" opacity="0.6" />
+    <circle cx="392" cy="282" r="8" fill="#F5F7FF" opacity="0.55" />
+    <rect x="328" y="320" width="64" height="12" rx="6" fill="rgba(75,233,245,0.3)" />
+  </g>
+
+  <g stroke="rgba(255,255,255,0.18)" stroke-width="1.8" stroke-linecap="round">
+    <path d="M190 170C220 150 270 140 310 150" />
+    <path d="M530 390C560 370 590 340 604 310" />
+  </g>
+
+  <g fill="rgba(255,255,255,0.4)">
+    <rect x="170" y="200" width="36" height="120" rx="10" />
+    <rect x="514" y="180" width="14" height="150" rx="7" />
+    <rect x="532" y="180" width="14" height="150" rx="7" />
+    <rect x="550" y="180" width="14" height="150" rx="7" />
+  </g>
+
+  <g opacity="0.3" fill="#F5F7FF">
+    <circle cx="140" cy="160" r="3" />
+    <circle cx="200" cy="420" r="4" />
+    <circle cx="520" cy="120" r="3" />
+    <circle cx="620" cy="260" r="4" />
+    <circle cx="460" cy="430" r="3" />
+  </g>
+</svg>

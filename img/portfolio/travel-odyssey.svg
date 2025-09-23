@@ -1,0 +1,39 @@
+<svg width="720" height="540" viewBox="0 0 720 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="travel-bg" x1="80" y1="40" x2="640" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1B2B8D" />
+      <stop offset="0.5" stop-color="#2D3F9C" />
+      <stop offset="1" stop-color="#070B2B" />
+    </linearGradient>
+    <linearGradient id="travel-path" x1="120" y1="140" x2="600" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4BE9F5" />
+      <stop offset="1" stop-color="#FF7EDB" />
+    </linearGradient>
+  </defs>
+  <rect width="720" height="540" rx="34" fill="url(#travel-bg)" />
+  <circle cx="540" cy="160" r="120" fill="rgba(125,107,255,0.35)" />
+  <circle cx="210" cy="190" r="90" fill="rgba(75,233,245,0.25)" />
+  <path d="M140 380C210 310 290 260 360 250C420 242 480 260 540 300C592 336 640 352 580 388" stroke="url(#travel-path)" stroke-width="6" stroke-linecap="round" fill="none" />
+  <path d="M232 324C284 272 348 242 406 250C450 256 492 276 530 300" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="10 12" />
+  <g transform="translate(280 170)">
+    <path d="M46 48L0 62L8 68L46 58L68 84L88 78L70 50L112 38C118 36 118 28 112 26L46 48Z" fill="#F5F7FF" />
+    <path d="M46 48L0 62L8 68L46 58L68 84L88 78L70 50L112 38C118 36 118 28 112 26L46 48Z" fill="url(#travel-path)" fill-opacity="0.4" />
+  </g>
+  <g stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-dasharray="6 8">
+    <circle cx="200" cy="370" r="32" />
+    <circle cx="360" cy="320" r="26" />
+    <circle cx="520" cy="360" r="34" />
+  </g>
+  <g fill="#F5F7FF" opacity="0.85">
+    <circle cx="200" cy="370" r="6" />
+    <circle cx="360" cy="320" r="6" />
+    <circle cx="520" cy="360" r="6" />
+  </g>
+  <g opacity="0.3" fill="#F5F7FF">
+    <circle cx="160" cy="140" r="3" />
+    <circle cx="300" cy="110" r="4" />
+    <circle cx="440" cy="90" r="3" />
+    <circle cx="520" cy="220" r="4" />
+    <circle cx="620" cy="300" r="3" />
+  </g>
+</svg>

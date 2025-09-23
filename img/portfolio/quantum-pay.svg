@@ -1,0 +1,40 @@
+<svg width="720" height="540" viewBox="0 0 720 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fintech-bg" x1="60" y1="40" x2="640" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F2A47" />
+      <stop offset="0.5" stop-color="#103656" />
+      <stop offset="1" stop-color="#040915" />
+    </linearGradient>
+    <linearGradient id="card" x1="220" y1="220" x2="520" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4BE9F5" />
+      <stop offset="1" stop-color="#7D6BFF" />
+    </linearGradient>
+  </defs>
+  <rect width="720" height="540" rx="34" fill="url(#fintech-bg)" />
+  <rect x="200" y="160" width="320" height="200" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+  <rect x="240" y="200" width="320" height="180" rx="24" fill="url(#card)" />
+  <rect x="260" y="222" width="120" height="12" rx="6" fill="rgba(255,255,255,0.5)" />
+  <rect x="260" y="246" width="80" height="12" rx="6" fill="rgba(255,255,255,0.35)" />
+  <rect x="260" y="320" width="160" height="18" rx="9" fill="rgba(5,8,22,0.25)" />
+  <circle cx="500" cy="310" r="42" fill="rgba(5,8,22,0.35)" stroke="rgba(255,255,255,0.4)" stroke-width="4" />
+  <path d="M486 310L496 320L514 300" stroke="#F5F7FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <g stroke="rgba(75,233,245,0.4)" stroke-width="2" stroke-linecap="round" opacity="0.6">
+    <path d="M140 340C210 312 280 300 340 300" />
+    <path d="M380 300C440 300 520 284 590 250" />
+  </g>
+
+  <g opacity="0.25" fill="#F5F7FF">
+    <circle cx="160" cy="200" r="4" />
+    <circle cx="280" cy="120" r="3" />
+    <circle cx="440" cy="100" r="4" />
+    <circle cx="580" cy="200" r="3" />
+    <circle cx="620" cy="360" r="4" />
+  </g>
+
+  <g fill="rgba(255,255,255,0.18)">
+    <rect x="180" y="380" width="120" height="12" rx="6" />
+    <rect x="320" y="400" width="160" height="14" rx="7" />
+    <rect x="520" y="360" width="60" height="12" rx="6" />
+  </g>
+</svg>
