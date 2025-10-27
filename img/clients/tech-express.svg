@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 128">
+  <text x="50%" y="52%" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="64"
+    text-anchor="middle" dominant-baseline="middle" font-weight="300">express</text>
+  <text x="50%" y="82%" fill="#ffffff" fill-opacity="0.72"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" text-anchor="middle"
+    font-weight="500">node.js framework</text>
+</svg>
