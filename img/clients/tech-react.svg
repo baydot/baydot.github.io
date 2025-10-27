@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title>React Icon</title>
+  <rect width="120" height="120" rx="20" fill="#e3fafc" />
+  <g fill="none" stroke="#15aabf" stroke-width="6">
+    <ellipse cx="60" cy="60" rx="34" ry="14" transform="rotate(0 60 60)" />
+    <ellipse cx="60" cy="60" rx="34" ry="14" transform="rotate(60 60 60)" />
+    <ellipse cx="60" cy="60" rx="34" ry="14" transform="rotate(120 60 60)" />
+    <circle cx="60" cy="60" r="9" fill="#15aabf" stroke="none" />
+  </g>
+</svg>
