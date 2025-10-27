@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Stylized avatar portrait of Faryal Zehra</title>
+  <desc id="desc">Minimal vector illustration of a woman with medium skin tone, shoulder length hair and a teal blouse.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2f6ff" />
+      <stop offset="100%" stop-color="#d4e4ff" />
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d2c59" />
+      <stop offset="100%" stop-color="#20152f" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="24" fill="url(#bg)" />
+  <circle cx="80" cy="70" r="46" fill="url(#hair)" />
+  <path d="M42 140c3-28 17-46 38-46s35 18 38 46H42z" fill="#27a79a" />
+  <path d="M97 140c0-10-7-18-17-18s-17 8-17 18" fill="#1d8d85" />
+  <path d="M80 52c-13 0-24 11-24 30s9 40 24 40 24-21 24-40-11-30-24-30z" fill="#f3c6a3" />
+  <path d="M56 84c2 3 9 6 24 6s22-3 24-6c1 18-8 38-24 38s-25-20-24-38z" fill="#f0b88f" />
+  <path d="M60 77c0-3 2-5 5-5s5 2 5 5" stroke="#3d2c59" stroke-width="4" stroke-linecap="round" />
+  <path d="M90 77c0-3 2-5 5-5s5 2 5 5" stroke="#3d2c59" stroke-width="4" stroke-linecap="round" />
+  <path d="M68 100c4 4 8 6 12 6s8-2 12-6" stroke="#d97f6c" stroke-width="4" stroke-linecap="round" fill="none" />
+  <path d="M52 82c-1-20 8-32 28-32s29 12 28 32c-7-6-16-10-28-10s-21 4-28 10z" fill="#3d2c59" />
+  <path d="M58 50c6-8 14-12 22-12s16 4 22 12c-6-4-14-6-22-6s-16 2-22 6z" fill="#4a346a" />
+</svg>
