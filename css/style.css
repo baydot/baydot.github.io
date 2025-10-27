@@ -458,32 +458,86 @@ body.mobile-nav-active .mobile-nav-overly {
 }
 
 .capability-card {
+  position: relative;
   height: 100%;
-  background: linear-gradient(160deg, rgba(14, 19, 45, 0.9) 0%, rgba(27, 16, 59, 0.9) 100%);
-  border-radius: 22px;
-  padding: 32px 28px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 22px 60px rgba(5, 11, 34, 0.45);
-  transition: transform 0.35s ease, border 0.35s ease;
+  padding: 36px 30px;
+  border-radius: 26px;
+  background: linear-gradient(160deg, rgba(19, 27, 62, 0.9) 0%, rgba(32, 20, 70, 0.88) 100%);
+  border: 1px solid rgba(120, 140, 200, 0.18);
+  overflow: hidden;
+  transition: transform 0.35s ease, border 0.35s ease, box-shadow 0.35s ease;
+}
+
+.capability-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.capability-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .capability-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(75, 233, 245, 0.45);
+  transform: translateY(-10px);
+  border-color: rgba(75, 233, 245, 0.6);
+  box-shadow: 0 28px 70px rgba(8, 14, 42, 0.6);
+}
+
+.capability-card:hover::after {
+  opacity: 0.6;
 }
 
 .capability-icon {
-  width: 56px;
-  height: 56px;
-  display: flex;
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  margin-bottom: 18px;
-  font-size: 26px;
-  color: var(--text-primary);
-  background-image: var(--accent-gradient);
-  box-shadow: 0 14px 30px rgba(75, 233, 245, 0.35);
+  border-radius: 20px;
+  margin-bottom: 22px;
+  background: var(--surface-lighter);
+  box-shadow: 0 18px 34px rgba(12, 21, 52, 0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.capability-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.capability-card:hover .capability-icon {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 24px 44px rgba(75, 233, 245, 0.35);
+}
+
+.capability-icon.angular {
+  background: radial-gradient(circle at 30% 30%, rgba(221, 0, 49, 0.25), transparent 70%), rgba(77, 15, 37, 0.85);
+}
+
+.capability-icon.shopify {
+  background: radial-gradient(circle at 30% 30%, rgba(91, 198, 134, 0.28), transparent 70%), rgba(21, 52, 43, 0.85);
+}
+
+.capability-icon.nextjs {
+  background: radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.25), transparent 70%), rgba(12, 26, 56, 0.9);
+}
+
+.capability-icon.kubernetes {
+  background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.35), transparent 70%), rgba(14, 30, 78, 0.9);
+}
+
+.capability-icon.aws {
+  background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.3), transparent 70%), rgba(51, 32, 7, 0.9);
+}
+
+.capability-icon.figma {
+  background: radial-gradient(circle at 30% 30%, rgba(234, 179, 8, 0.18), transparent 70%), rgba(35, 19, 58, 0.9);
 }
 
 .capability-card p {
@@ -795,9 +849,9 @@ body.mobile-nav-active .mobile-nav-overly {
   font-size: 16px;
 }
 
-.contact-email i {
-  font-size: 20px;
-  color: var(--accent);
+.contact-email svg {
+  width: 28px;
+  height: 28px;
 }
 
 .form .form-control {
