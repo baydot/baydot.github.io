@@ -1,117 +1,125 @@
-
 jQuery(document).ready(function($) {
   "use strict";
 
-  //Contact
-  $('form.contactForm').submit(function() {
-    var f = $(this).find('.form-group'),
-      ferror = false,
-      emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+  function validateField(field, rule, exp, emailExp) {
+    var value = field.val();
+    var ierror = false;
 
-    f.children('input').each(function() { // run all inputs
-
-      var i = $(this); // current input
-      var rule = i.attr('data-rule');
-
-      if (rule !== undefined) {
-        var ierror = false; // error flag for current input
-        var pos = rule.indexOf(':', 0);
-        if (pos >= 0) {
-          var exp = rule.substr(pos + 1, rule.length);
-          rule = rule.substr(0, pos);
-        } else {
-          rule = rule.substr(pos + 1, rule.length);
+    switch (rule) {
+      case 'required':
+        if (value === '') {
+          ierror = true;
         }
+        break;
 
-        switch (rule) {
-          case 'required':
-            if (i.val() === '') {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'minlen':
-            if (i.val().length < parseInt(exp)) {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'email':
-            if (!emailExp.test(i.val())) {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'checked':
-            if (! i.is(':checked')) {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'regexp':
-            exp = new RegExp(exp);
-            if (!exp.test(i.val())) {
-              ferror = ierror = true;
-            }
-            break;
+      case 'minlen':
+        if (value.length < parseInt(exp, 10)) {
+          ierror = true;
         }
-        i.next('.validation').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-      }
-    });
-    f.children('textarea').each(function() { // run all inputs
+        break;
 
-      var i = $(this); // current input
-      var rule = i.attr('data-rule');
-
-      if (rule !== undefined) {
-        var ierror = false; // error flag for current input
-        var pos = rule.indexOf(':', 0);
-        if (pos >= 0) {
-          var exp = rule.substr(pos + 1, rule.length);
-          rule = rule.substr(0, pos);
-        } else {
-          rule = rule.substr(pos + 1, rule.length);
+      case 'email':
+        if (!emailExp.test(value)) {
+          ierror = true;
         }
+        break;
 
-        switch (rule) {
-          case 'required':
-            if (i.val() === '') {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'minlen':
-            if (i.val().length < parseInt(exp)) {
-              ferror = ierror = true;
-            }
-            break;
+      case 'checked':
+        if (!field.is(':checked')) {
+          ierror = true;
         }
-        i.next('.validation').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-      }
-    });
-    if (ferror) return false;
-    else var str = $(this).serialize();
-    var action = $(this).attr('action');
-    if( ! action ) {
-      action = 'https://shabeebhasan.000webhostapp.com/contact_process.php';
+        break;
+
+      case 'regexp':
+        exp = new RegExp(exp);
+        if (!exp.test(value)) {
+          ierror = true;
+        }
+        break;
     }
+
+    return ierror;
+  }
+
+  // Contact
+  $('form.contactForm').submit(function(e) {
+    e.preventDefault();
+
+    var $form = $(this);
+    var f = $form.find('.form-group');
+    var ferror = false;
+    var emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+    $("#sendmessage").removeClass("show");
+    $("#errormessage").removeClass("show").html("");
+
+    f.children('input, textarea').each(function() {
+      var i = $(this);
+      var rule = i.attr('data-rule');
+
+      if (rule !== undefined) {
+        var ierror = false;
+        var pos = rule.indexOf(':', 0);
+        var exp = '';
+        if (pos >= 0) {
+          exp = rule.substr(pos + 1, rule.length);
+          rule = rule.substr(0, pos);
+        } else {
+          rule = rule.substr(pos + 1, rule.length);
+        }
+
+        ierror = validateField(i, rule, exp, emailExp);
+        if (ierror) {
+          ferror = true;
+        }
+
+        i.next('.validation')
+          .html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : ''))
+          .show('blind');
+      }
+    });
+
+    if (ferror) {
+      return false;
+    }
+
+    var action = $form.attr('action');
+    if (!action) {
+      action = 'https://api.web3forms.com/submit';
+    }
+
+    var $submit = $form.find('button[type="submit"]');
+    $submit.prop('disabled', true);
+
     $.ajax({
       type: "POST",
       url: action,
-      data: str,
-      success: function(msg) {
-        if (msg == 'OK') {
+      data: $form.serialize(),
+      dataType: "json",
+      success: function(resp) {
+        if (resp && resp.success) {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");
-          $('.contactForm').find("input, textarea").val("");
+          $form.find("input, textarea").val("");
         } else {
+          var message = (resp && resp.message) ? resp.message : "Submission failed. Please try again.";
           $("#sendmessage").removeClass("show");
-          $("#errormessage").addClass("show");
-          $('#errormessage').html(msg);
+          $("#errormessage").addClass("show").html(message);
         }
-
+      },
+      error: function(xhr) {
+        var message = "Submission failed. Please try again.";
+        if (xhr && xhr.responseJSON && xhr.responseJSON.message) {
+          message = xhr.responseJSON.message;
+        }
+        $("#sendmessage").removeClass("show");
+        $("#errormessage").addClass("show").html(message);
+      },
+      complete: function() {
+        $submit.prop('disabled', false);
       }
     });
+
     return false;
   });
 
