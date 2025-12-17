@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title>Angular Icon</title>
+  <rect width="120" height="120" rx="20" fill="#fff5f5" />
+  <path d="M60 16 20 32.5 26.6 88.5 60 104l33.4-15.5L100 32.5 60 16z" fill="#c92a2a"/>
+  <path d="M60 26.1 30.9 36.7 36.2 84 60 94.8 83.8 84l5.3-47.3L60 26.1z" fill="#fff" opacity=".18"/>
+  <path d="M60 36.8 41.3 82.6h9.8l3.8-9.5h20.2l3.9 9.5h9.7L70 36.8H60zm-2.2 26.2 6.4-16.2 6.4 16.2H57.8z" fill="#fff"/>
+</svg>
